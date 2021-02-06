@@ -22,48 +22,48 @@ public class MyApplicationTest {
 
 
     MyApplication app;
-
-    @BeforeEach
-    public void setup() {
-        app = new MyApplication();
-    }
-
-    @Test
-    public void processMessage_anyMsgAndAnyRec_false() {
-        SpyMessageService service = new SpyMessageService();
-        app.setService(service);
-        Message dummy = new Message();
-        boolean actual = app.processMessage(dummy);
-        Assertions.assertEquals(1, service.count);
-    }
-
-    @Test
-    public void processMessage_anyMsgAndAnyRec_true() {
-        MessageService service = new MessageService() {
-            @Override
-            public boolean send(String msg, String rec) {
-                return true;
-            }
-        };
-
-        app.setService(service);
-        Message dummy = new Message();
-        boolean actual = app.processMessage(dummy);
-        Assertions.assertTrue(actual);
-    }
-
-    @Test
-    public void processMessage_withMsgAndRec_false(){
-        SpyMessageService service = new SpyMessageService();
-
-        Message message = new Message();
-        message.setRec("mmcj@cesar.school");
-        message.setContent("Hello world!");
-
-        app.setService(service);
-        app.processMessage(message);
-
-        Assertions.assertEquals("Hello world!", service.msg);
-        Assertions.assertEquals("mmcj@cesar.school", service.rec);
-    }
+//
+//    @BeforeEach
+//    public void setup() {
+//        app = new MyApplication();
+//    }
+//
+//    @Test
+//    public void processMessage_anyMsgAndAnyRec_false() {
+//        SpyMessageService service = new SpyMessageService();
+//        app.setService(service);
+//        Message dummy = new Message();
+//        boolean actual = app.processMessage(dummy);
+//        Assertions.assertEquals(1, service.count);
+//    }
+//
+//    @Test
+//    public void processMessage_anyMsgAndAnyRec_true() {
+//        MessageService service = new MessageService() {
+//            @Override
+//            public boolean send(String msg, String rec) {
+//                return true;
+//            }
+//        };
+//
+//        app.setService(service);
+//        Message dummy = new Message();
+//        boolean actual = app.processMessage(dummy);
+//        Assertions.assertTrue(actual);
+//    }
+//
+//    @Test
+//    public void processMessage_withMsgAndRec_false(){
+//        SpyMessageService service = new SpyMessageService();
+//
+//        Message message = new Message();
+//        message.setRec("mmcj@cesar.school");
+//        message.setContent("Hello world!");
+//
+//        app.setService(service);
+//        app.processMessage(message);
+//
+//        Assertions.assertEquals("Hello world!", service.msg);
+//        Assertions.assertEquals("mmcj@cesar.school", service.rec);
+//    }
 }
