@@ -16,7 +16,8 @@ public class MyApplicationTest {
         TestMessageService service = new TestMessageService();
         MyApplication app = new MyApplication();
         app.setService(service);
-        boolean actual = app.processMessage("", "");
+        Message dummy = new Message();
+        boolean actual = app.processMessage(dummy);
         Assertions.assertTrue(actual);
     }
 }
