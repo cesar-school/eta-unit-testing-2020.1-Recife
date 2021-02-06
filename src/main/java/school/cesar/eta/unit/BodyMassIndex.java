@@ -1,6 +1,11 @@
 package school.cesar.eta.unit;
 
 public class BodyMassIndex {
+
+    public static double calculate(double weight, double height){
+        return weight/Math.pow(height, 2);
+    }
+
     public static String classify(double bmi) {
         if(bmi < 16){
             return "severely underweight";
@@ -19,5 +24,10 @@ public class BodyMassIndex {
         }
 
         return "obese";
+    }
+
+    public static String classify(double weight, double height) {
+        double bmi = calculate(weight, height);
+        return classify(bmi);
     }
 }
